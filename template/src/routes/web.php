@@ -28,6 +28,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Book
     Route::delete('books/destroy', 'BookController@massDestroy')->name('books.massDestroy');
     Route::resource('books', 'BookController');
+
+    // Beasisiwa
+    Route::delete('beasiswas/destroy', 'BeasiswaController@massDestroy')->name('beasiswas.massDestroy');
+    Route::resource('beasiswas', 'BeasiswaController');
+
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

@@ -4,9 +4,9 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1>{{ trans('panel.site_title') }}</h1>
-
-                <p class="text-muted">{{ trans('global.login') }}</p>
+            <img src="https://www.esaunggul.ac.id/wp-content/uploads/2012/07/logo-ke-bwh.jpg"
+                alt="Avatar" class="img-fluid my-5" style="width: 90px;" />
+                
 
                 @if(session('message'))
                     <div class="alert alert-info" role="alert">

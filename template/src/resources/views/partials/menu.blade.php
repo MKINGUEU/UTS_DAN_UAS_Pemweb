@@ -76,6 +76,30 @@
                             </a>
                         </li>
                     @endcan
+
+                   
+                </ul>
+            </li>
+        @endcan
+        @can('sample_access')
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/beasisiwas*") ? "c-show" : "" }}">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-crown c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.uts.title') }}
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('beasiswa_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.beasiswas.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/beasiswas") || request()->is("admin/beasiswas/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-beasiswa c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.beasiswa.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan

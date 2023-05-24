@@ -98,8 +98,29 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 22,
                 'title' => 'book_access',
             ],
+
             [
                 'id'    => 23,
+                'title' => 'beasiswa_create',
+            ],
+            [
+                'id'    => 24,
+                'title' => 'beasiswa_edit',
+            ],
+            [
+                'id'    => 25,
+                'title' => 'beasiswa_show',
+            ],
+            [
+                'id'    => 26,
+                'title' => 'beasiswa_delete',
+            ],
+            [
+                'id'    => 27,
+                'title' => 'beasiswa_access',
+            ],
+            [
+                'id'    => 28,
                 'title' => 'profile_password_edit',
             ],
         ];
