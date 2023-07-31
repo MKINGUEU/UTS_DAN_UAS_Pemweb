@@ -124,4 +124,81 @@ class BeasiswaController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+    //disini new
+    public function index_new()
+    {
+        $beasiswas = Beasiswa::all();
+        return response()->json($beasiswas);
+
+    }
+    public function store_new(Request $request)
+    {
+        $beasiswas = new Beasiswa;
+        $beasiswas->beasiswaname = $request->beasiswaname;
+        $beasiswas->nim = $request->nim;
+        $beasiswas->jenis_kelamin = $request->jenis_kelamin;
+        $beasiswas->jurusan = $request->jurusan;
+        $beasiswas->fakultas = $request->fakultas;
+        $beasiswas->jalur = $request->jalur;
+        $beasiswas->save();
+
+        return response()->json([
+            "message"=>"beasiswa telah ditambahkan"
+        ], 201);
+    
+    }
+    
+    public function shownew($id)
+    {
+        $beasiswas = Beasiswa::find($id);
+        if (!empty($beasiswas)) 
+        {
+            return response()->json($beasiswas);
+        }
+        else 
+        {
+            return response()->json([
+                'message' => 'beasiswa tidak ada'
+            ], 404);
+        }
+    }
+
+    public function updatenew(Request $request, $id)
+    {
+        if (Beasiswa::where('id', $id)->exists()){
+            $beasiswas = Beasiswa::find($id);
+            $beasiswas->beasiswaname = is_null($request->beasiswaname) ? $beasiswas->beasiswaname : $request->beasiswaname;
+            $beasiswas->nim = is_null($request->nim) ? $beasiswas->nim : $request->nim;
+            $beasiswas->jenis_kelamin = is_null($request->jenis_kelamin) ? $beasiswas->jenis_kelamin : $request->jenis_kelamin;
+            $beasiswas->jurusan = is_null($request->jurusan) ? $beasiswas->jurusan : $request->jurusan;
+            $beasiswas->fakultas = is_null($request->fakultas) ? $beasiswas->fakultas : $request->fakultas;
+            $beasiswas->jalur = is_null($request->jalur) ? $beasiswas->jalur : $request->jalur;
+            $beasiswas->save();
+            return response()->json([
+                "message" => "beasiswa diperbaharui"
+            ], 404);
+
+        }else{
+            return response()->json([
+                "message" => "beasiswa tidak ditemukan"
+            ], 404);
+        }
+    }
+    public function destroynew($id)
+    {
+        if(Beasiswa::where('id',$id)->exists()){
+            $beasiswas = Beasiswa::find($id);
+            $beasiswas-> delete();
+
+            return response ()->json([
+                "message" => "data beasiswa di hancurkan"
+            ], 202);
+        }else {
+            return response ()->json([
+                "message" => " data beasiswa tidak ada"
+            ], 404);
+        }
+    }
+
+    
 }

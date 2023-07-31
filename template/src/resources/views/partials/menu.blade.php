@@ -87,7 +87,7 @@
                     <i class="fa-fw fas fa-crown c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.uts.title') }}
+                    {{ trans('cruds.uas.title') }}
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     @can('beasiswa_access')

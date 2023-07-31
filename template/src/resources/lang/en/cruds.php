@@ -70,9 +70,9 @@ return [
         'title_singular' => 'Sample',
     ],
 
-    'uts' => [
-        'title'          => 'Uts',
-        'title_singular' => 'Uts',
+    'uas' => [
+        'title'          => 'UAS',
+        'title_singular' => 'UAS',
     ],
     'book' => [
         'title'          => 'Book',

@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Admin\BeasiswaController;
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -43,3 +43,11 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
 });
+Route::middleware('auth:api')->get('/user', function (Request $request){
+    return $request->user();
+});
+Route::get('/beasiswa',[BeasiswaController::class, 'index_new']);
+Route::get('/beasiswa/{id}',[BeasiswaController::class, 'shownew']);
+Route::post('/beasiswa',[BeasiswaController::class, 'storenew']);
+Route::put('/beasiswa/{id}',[BeasiswaController::class, 'updatenew']);
+Route::delete('/beasiswa/{id}',[BeasiswaController::class, 'destroynew']);
